@@ -1,0 +1,24 @@
+{
+  "defaultSeverity": "true",
+  "extends": [
+    "tslint:latest",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "ordered-imports": false,
+    "trailing-comma": [
+      true
+    ],
+    "no-string-throw": false,
+    "semicolon": [
+      "never"
+    ],
+    "no-console": [
+      false,
+      "log",
+      "error"
+    ],
+    "no-implicit-dependencies": false,
+    "no-var-requires": false
+  }
+}
