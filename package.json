@@ -12,7 +12,7 @@
     "lint": "tslint --project tsconfig.json --format codeFrame",
     "clean": "rimraf project",
     "build:dev": "$(npm bin)/tsc",
-    "afterbuild": "$(npm bin)/ncp public project/public",
+    "afterbuild": "$(npm bin)/ncp templates project/templates && $(npm bin)/ncp public project/public",
     "webpack:run": "$(npm bin)/webpack",
     "watch:lint": "onchange 'src/**/*.ts' -- npm run lint",
     "watch:test": "mocha  --require ts-node/register --watch-extensions ts --watch --recursive 'src/**/*_test.ts'",
