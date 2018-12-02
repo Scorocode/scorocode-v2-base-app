@@ -10,14 +10,14 @@
     "start": "npm-run-all clean lint build:dev --parallel watch:lint watch:build watch:server",
     "test": "npm-run-all --parallel watch:lint watch:test",
     "lint": "tslint --project tsconfig.json --format codeFrame",
-    "clean": "rimraf build",
+    "clean": "rimraf project",
     "build:dev": "$(npm bin)/tsc",
-    "afterbuild": "$(npm bin)/ncp public build/public",
+    "afterbuild": "$(npm bin)/ncp public project/public",
     "webpack:run": "$(npm bin)/webpack",
     "watch:lint": "onchange 'src/**/*.ts' -- npm run lint",
     "watch:test": "mocha  --require ts-node/register --watch-extensions ts --watch --recursive 'src/**/*_test.ts'",
     "watch:build": "npm run build:dev --watch",
-    "watch:server": "node 'build/index.js' --watch 'build' -- port=3000"
+    "watch:server": "node 'project/index.js' --watch 'project' -- port=3000"
   },
   "devDependencies": {
     "@types/chai-http": "^3.0.5",
