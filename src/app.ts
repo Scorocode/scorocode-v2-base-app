@@ -1,6 +1,7 @@
 import * as express from 'express'
 import custom from './controllers/custom'
 import service from './controllers/service'
+import example from './controllers/example'
 import { join } from 'path'
 
 const router: express.Router = express.Router({
@@ -14,6 +15,8 @@ router.use('/', service)
 
 // custom handlers
 router.use('/', custom)
+router.use('/', example)
+
 
 const app: express.Express = express()
 app.use(express.json())

@@ -11,7 +11,7 @@ describe('router', () => {
       .end((err, res) => {
         assert.isNull(err)
         expect(res).to.have.status(200)
-        expect(res.text).to.be.include('Hello world')
+        expect(res.text).to.be.include('Welcome to your first Scorocode app!')
 
         done();
       });

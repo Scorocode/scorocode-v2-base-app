@@ -1,17 +1,23 @@
+import conn from './models/conn'
 import app from './app'
 
-let listenPort;
+let listenPort: number;
 process.argv.forEach((val, index, array) => {
-  // required argument. DON'T EDIT
   if (val.startsWith('port=')) {
     listenPort = parseInt(val.replace('port=', ''), 10);
   }
 });
 
-console.log('node listenPort:', listenPort);
+console.log('listenPort:', listenPort);
 
-app.listen(listenPort, () => {
-  console.log('node server listen port:', listenPort);
-});
+conn.initDefault().then((connection) => {
 
-console.log('node server shutdown');
+  console.log('server start...');
+
+  app.listen(listenPort, () => {
+    console.log('server listen port:', listenPort);
+  });
+
+  console.log('server shutdown');
+
+}).catch(error => console.error(error));
